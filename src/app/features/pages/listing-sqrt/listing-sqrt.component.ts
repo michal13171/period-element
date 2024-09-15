@@ -68,4 +68,39 @@ export class ListingSqrtComponent implements OnInit {
       }
     });
   }
+
+  private filterDataSymbolPeriodElements(data: any, keyJson: string) {
+    if (data) {
+      this.dataSource = this.dataSource.filter((item) => {
+        if (item) {
+          return item[keyJson] == data;
+        } else {
+          return this.listingData(null);
+        }
+      });
+    } else {
+      this.listingData(null);
+    }
+  }
+
+  filterPeriod($event: any) {
+    if ($event.key === 'Enter') {
+      let valueRecord = $event.target.value;
+
+      if (parseInt(valueRecord)) {
+        let parseStringToNumber = Number(valueRecord)
+        if (valueRecord % 1 !== 0) {
+          this.filterDataSymbolPeriodElements(parseStringToNumber, 'weight')
+        } else {
+          this.filterDataSymbolPeriodElements(parseStringToNumber, 'position')
+        }
+      } else {
+        if (valueRecord.length <= 3 && typeof valueRecord === 'string') {
+          this.filterDataSymbolPeriodElements(valueRecord, 'symbol')
+        } else {
+          this.filterDataSymbolPeriodElements(valueRecord, 'name')
+        }
+      }
+    }
+  }
 }
