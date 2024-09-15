@@ -10,11 +10,19 @@ import {MatDialog} from "@angular/material/dialog";
 import {
   DialogOverviewPeriodicElementComponent
 } from "../../shared/dialog-overview-periodic-element/dialog-overview-periodic-element.component";
+import {MatIconModule} from "@angular/material/icon";
 
 @Component({
   selector: 'app-listing-sqrt',
   standalone: true,
-  imports: [CdkTableModule, MatFormFieldModule, MatInputModule, FormsModule, MatButtonModule],
+  imports: [
+    CdkTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatButtonModule,
+    MatIconModule
+  ],
   templateUrl: './listing-sqrt.component.html',
   styleUrl: './listing-sqrt.component.scss'
 })
@@ -22,7 +30,7 @@ export class ListingSqrtComponent implements OnInit {
   private PeriodElementService = inject(PeriodElementService);
   readonly dialog = inject(MatDialog);
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'action'];
   dataSource: any[] = [];
 
   listingData(data: PeriodicElement | null) {
