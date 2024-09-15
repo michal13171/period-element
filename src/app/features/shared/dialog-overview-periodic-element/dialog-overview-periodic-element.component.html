@@ -1,22 +1,32 @@
-<h2 mat-dialog-title>Hi {{data.name }}</h2>
+<h2 mat-dialog-title>Name: {{ data.name }}</h2>
 <mat-dialog-content>
   <p>What's your period element?</p>
-  <mat-form-field>
-    <mat-label>Name</mat-label>
-    <input matInput [(ngModel)]="data.name" />
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Position</mat-label>
-    <input matInput [(ngModel)]="data.position" />
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Weight</mat-label>
-    <input matInput [(ngModel)]="data.weight" />
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Symbol</mat-label>
-    <input matInput [(ngModel)]="data.symbol" />
-  </mat-form-field>
+  <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="data.name"/>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Position</mat-label>
+        <input matInput [(ngModel)]="data.position"/>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Weight</mat-label>
+        <input matInput [(ngModel)]="data.weight"/>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Symbol</mat-label>
+        <input matInput [(ngModel)]="data.symbol"/>
+      </mat-form-field>
+    </mat-grid-tile>
+  </mat-grid-list>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>

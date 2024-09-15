@@ -12,7 +12,7 @@ import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {PeriodicElement} from "../../layout/models/PeriodicElement";
-import {JsonPipe} from "@angular/common";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 @Component({
   selector: 'app-dialog-overview-periodic-element',
@@ -26,7 +26,7 @@ import {JsonPipe} from "@angular/common";
     MatDialogContent,
     MatDialogActions,
     MatDialogClose,
-    JsonPipe,
+    MatGridListModule,
   ],
   templateUrl: './dialog-overview-periodic-element.component.html',
   styleUrl: './dialog-overview-periodic-element.component.scss'
