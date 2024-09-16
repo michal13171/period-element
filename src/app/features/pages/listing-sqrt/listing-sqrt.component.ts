@@ -11,6 +11,7 @@ import {
   DialogOverviewPeriodicElementComponent
 } from "../../shared/dialog-overview-periodic-element/dialog-overview-periodic-element.component";
 import {MatIconModule} from "@angular/material/icon";
+import {interval} from "rxjs";
 
 @Component({
   selector: 'app-listing-sqrt',
@@ -71,12 +72,14 @@ export class ListingSqrtComponent implements OnInit {
 
   private filterDataSymbolPeriodElements(data: any, keyJson: string) {
     if (data) {
-      this.dataSource = this.dataSource.filter((item) => {
-        if (item) {
-          return item[keyJson] == data;
-        } else {
-          return this.listingData(null);
-        }
+      interval(2000).subscribe(() => {
+        this.dataSource = this.dataSource.filter((item) => {
+          if (item) {
+            return item[keyJson] == data;
+          } else {
+            return this.listingData(null);
+          }
+        });
       });
     } else {
       this.listingData(null);
